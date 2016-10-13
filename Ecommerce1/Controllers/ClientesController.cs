@@ -13,7 +13,7 @@ namespace Ecommerce1.Controllers
 {
     public class ClientesController : Controller
     {
-        private dbEntities1 db = new dbEntities1();
+        private dbEntities10 db = new dbEntities10();
 
         private IClienteRepository iClienteRepository = new ClienteRepository();
 

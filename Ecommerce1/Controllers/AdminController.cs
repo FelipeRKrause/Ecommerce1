@@ -12,7 +12,7 @@ namespace Ecommerce1.Controllers
 {
     public class AdminController : Controller
     {
-        private dbEntities1 db = new dbEntities1();
+        private dbEntities10 db = new dbEntities10();
 
         // GET: Admin
         public ActionResult Index()

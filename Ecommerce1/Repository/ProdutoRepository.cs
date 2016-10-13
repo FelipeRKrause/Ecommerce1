@@ -8,7 +8,7 @@ namespace Ecommerce1.Repository
 {
     public class ProdutoRepository : IProdutoRepository
     {
-        private dbEntities1 dbEntities = new dbEntities1();
+        private dbEntities10 dbEntities = new dbEntities10();
         public Produto find(int id)
         {
             return dbEntities.Produto.Find(id);
