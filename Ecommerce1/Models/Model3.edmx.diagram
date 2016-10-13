@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="84d59f72753d40af9261b668472587e4" Name="Diagram1">
+        <EntityTypeShape EntityType="dbModel.Categoria" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.Cliente" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.ItemPedido" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.Pedido" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.Produto" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.Cartao" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.Endereco" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.ListaDesejo" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="dbModel.FK__Produto__idCateg__182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModel.FK__Cartao__idClient__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModel.FK__Endereco__idClie__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModel.FK__ListaDese__idCli__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModel.FK__Pedido__idClient__1920BF5C" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModel.FK__ItemPedid__idPed__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModel.FK__ItemPedid__idPro__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModel.FK__ItemPedid__idPro__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModel.FK__ListaDese__idPro__239E4DCF" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
