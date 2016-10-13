@@ -9,66 +9,55 @@ using System.Web.Mvc;
 using Ecommerce1.Models;
 using Ecommerce1.Repository;
 
-namespace Ecommerce1.Controllers
-{
-    public class ClientesController : Controller
-    {
+namespace Ecommerce1.Controllers {
+    public class ClientesController : Controller {
         private dbEntities10 db = new dbEntities10();
 
         private IClienteRepository iClienteRepository = new ClienteRepository();
 
         [HttpGet]
-        public ActionResult Login()
-        {
+        public ActionResult Login() {
             return View();
         }
         [HttpPost]
-        public ActionResult Login(Cliente cliente)
-        {
+        public ActionResult Login(Cliente cliente) {
 
             Cliente cli = iClienteRepository.login(cliente.email, cliente.senha);
 
-            if (cli == null)
-            {
+            if (cli == null) {
                 ViewBag.error = "Email ou Senha inválido";
                 return View("Login");
-            }
-            else {
+            } else {
 
                 Session["email"] = cli.email;
                 Session["senha"] = cli.senha;
                 return View("Create");
 
-            }            
+            }
         }
 
 
         [HttpGet]
-        public ActionResult Create()
-        {
+        public ActionResult Create() {
             return View();
         }
 
-        public ActionResult MyAccount()
-        {
+        public ActionResult MyAccount() {
             return View();
         }
 
 
-        [HttpPost]        
-        public ActionResult Create(Cliente cliente)
-        {
+        [HttpPost]
+        public ActionResult Create(Cliente cliente) {
             iClienteRepository.create(cliente);
 
-            return RedirectToAction("Create","Clientes");
+            return RedirectToAction("Create", "Clientes");
         }
 
 
-      
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
+
+        protected override void Dispose(bool disposing) {
+            if (disposing) {
                 db.Dispose();
             }
             base.Dispose(disposing);

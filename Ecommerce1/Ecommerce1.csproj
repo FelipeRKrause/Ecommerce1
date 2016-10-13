@@ -218,6 +218,7 @@
       <DependentUpon>Model10.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ItemPedido.cs">
       <DependentUpon>Model10.tt</DependentUpon>
     </Compile>

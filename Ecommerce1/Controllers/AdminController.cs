@@ -8,47 +8,38 @@ using System.Web;
 using System.Web.Mvc;
 using Ecommerce1.Models;
 
-namespace Ecommerce1.Controllers
-{
-    public class AdminController : Controller
-    {
+namespace Ecommerce1.Controllers {
+    public class AdminController : Controller {
         private dbEntities10 db = new dbEntities10();
 
         // GET: Admin
-        public ActionResult Index()
-        {
+        public ActionResult Index() {
             return View();
         }
 
-        public ActionResult login()
-        {
+        public ActionResult login() {
             return View();
         }
 
-        public ActionResult IndexProduct()
-        {
+        public ActionResult IndexProduct() {
             var produto = db.Produto.Include(p => p.Categoria);
             return View(produto.ToList());
         }
 
         // GET: Admin/Details/5
-        public ActionResult DetailsProduct(int? id)
-        {
-            if (id == null)
-            {
+        public ActionResult DetailsProduct(int? id) {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Produto produto = db.Produto.Find(id);
-            if (produto == null)
-            {
+            if (produto == null) {
                 return HttpNotFound();
             }
             return View(produto);
         }
 
         // GET: Admin/Create
-        public ActionResult CreateProduct()
-        {
+        public ActionResult CreateProduct() {
             ViewBag.idCategoria = new SelectList(db.Categoria, "idCategoria", "nome");
             return View();
         }
@@ -58,10 +49,8 @@ namespace Ecommerce1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateProduct([Bind(Include = "idProduto,nome,descricao,preco,idCategoria,quantidade,foto")] Produto produto)
-        {
-            if (ModelState.IsValid)
-            {
+        public ActionResult CreateProduct([Bind(Include = "idProduto,nome,descricao,preco,idCategoria,quantidade,foto")] Produto produto) {
+            if (ModelState.IsValid) {
                 db.Produto.Add(produto);
                 db.SaveChanges();
                 return RedirectToAction("IndexProduct");
@@ -72,15 +61,12 @@ namespace Ecommerce1.Controllers
         }
 
         // GET: Admin/Edit/5
-        public ActionResult EditProduct(int? id)
-        {
-            if (id == null)
-            {
+        public ActionResult EditProduct(int? id) {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Produto produto = db.Produto.Find(id);
-            if (produto == null)
-            {
+            if (produto == null) {
                 return HttpNotFound();
             }
             ViewBag.idCategoria = new SelectList(db.Categoria, "idCategoria", "nome", produto.idCategoria);
@@ -92,10 +78,8 @@ namespace Ecommerce1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditProduct([Bind(Include = "idProduto,nome,descricao,preco,idCategoria,quantidade,foto")] Produto produto)
-        {
-            if (ModelState.IsValid)
-            {
+        public ActionResult EditProduct([Bind(Include = "idProduto,nome,descricao,preco,idCategoria,quantidade,foto")] Produto produto) {
+            if (ModelState.IsValid) {
                 db.Entry(produto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("IndexProduct");
@@ -105,15 +89,12 @@ namespace Ecommerce1.Controllers
         }
 
         // GET: Admin/Delete/5
-        public ActionResult DeleteProduct(int? id)
-        {
-            if (id == null)
-            {
+        public ActionResult DeleteProduct(int? id) {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Produto produto = db.Produto.Find(id);
-            if (produto == null)
-            {
+            if (produto == null) {
                 return HttpNotFound();
             }
             return View(produto);
@@ -122,8 +103,7 @@ namespace Ecommerce1.Controllers
         // POST: Admin/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmedProduct(int id)
-        {
+        public ActionResult DeleteConfirmedProduct(int id) {
             Produto produto = db.Produto.Find(id);
             db.Produto.Remove(produto);
             db.SaveChanges();
@@ -131,29 +111,24 @@ namespace Ecommerce1.Controllers
         }
 
 
-        public ActionResult IndexCategory()
-        {
+        public ActionResult IndexCategory() {
             return View(db.Categoria.ToList());
         }
 
         // GET: Categorias/Details/5
-        public ActionResult DetailsCategory(int? id)
-        {
-            if (id == null)
-            {
+        public ActionResult DetailsCategory(int? id) {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Categoria categoria = db.Categoria.Find(id);
-            if (categoria == null)
-            {
+            if (categoria == null) {
                 return HttpNotFound();
             }
             return View(categoria);
         }
 
         // GET: Categorias/Create
-        public ActionResult CreateCategory()
-        {
+        public ActionResult CreateCategory() {
             return View();
         }
 
@@ -162,10 +137,8 @@ namespace Ecommerce1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateCategory([Bind(Include = "idCategoria,nome")] Categoria categoria)
-        {
-            if (ModelState.IsValid)
-            {
+        public ActionResult CreateCategory([Bind(Include = "idCategoria,nome")] Categoria categoria) {
+            if (ModelState.IsValid) {
                 db.Categoria.Add(categoria);
                 db.SaveChanges();
                 return RedirectToAction("IndexCategory");
@@ -175,15 +148,12 @@ namespace Ecommerce1.Controllers
         }
 
         // GET: Categorias/Edit/5
-        public ActionResult EditCategory(int? id)
-        {
-            if (id == null)
-            {
+        public ActionResult EditCategory(int? id) {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Categoria categoria = db.Categoria.Find(id);
-            if (categoria == null)
-            {
+            if (categoria == null) {
                 return HttpNotFound();
             }
             return View(categoria);
@@ -194,10 +164,8 @@ namespace Ecommerce1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditCategory([Bind(Include = "idCategoria,nome")] Categoria categoria)
-        {
-            if (ModelState.IsValid)
-            {
+        public ActionResult EditCategory([Bind(Include = "idCategoria,nome")] Categoria categoria) {
+            if (ModelState.IsValid) {
                 db.Entry(categoria).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("IndexCategory");
@@ -206,15 +174,12 @@ namespace Ecommerce1.Controllers
         }
 
         // GET: Categorias/Delete/5
-        public ActionResult DeleteCategory(int? id)
-        {
-            if (id == null)
-            {
+        public ActionResult DeleteCategory(int? id) {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Categoria categoria = db.Categoria.Find(id);
-            if (categoria == null)
-            {
+            if (categoria == null) {
                 return HttpNotFound();
             }
             return View(categoria);
@@ -223,8 +188,7 @@ namespace Ecommerce1.Controllers
         // POST: Categorias/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmedCategory(int id)
-        {
+        public ActionResult DeleteConfirmedCategory(int id) {
             Categoria categoria = db.Categoria.Find(id);
             db.Categoria.Remove(categoria);
             db.SaveChanges();
@@ -233,10 +197,8 @@ namespace Ecommerce1.Controllers
 
 
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
+        protected override void Dispose(bool disposing) {
+            if (disposing) {
                 db.Dispose();
             }
             base.Dispose(disposing);
