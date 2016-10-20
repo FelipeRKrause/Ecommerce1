@@ -10,6 +10,7 @@ using Ecommerce1.Models;
 using Ecommerce1.Repository;
 
 namespace Ecommerce1.Controllers {
+    
     public class ProdutosController : Controller {
         private ICategoriaRepository iCategoriaRepository = new CategoriaRepository();
         private IProdutoRepository iProdutoRepository = new ProdutoRepository();

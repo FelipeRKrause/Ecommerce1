@@ -350,10 +350,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="t\css\" />
-    <Folder Include="t\font\" />
-    <Folder Include="t\images\" />
-    <Folder Include="t\js\" />
+    <Folder Include="Content\t\css\" />
+    <Folder Include="Content\t\font\" />
+    <Folder Include="Content\t\images\" />
+    <Folder Include="Content\t\js\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

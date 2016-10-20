@@ -2,9 +2,8 @@
 
 @using Ecommerce1.Repository
 
-@{ ICategoriaRepository iCategoriaRepository = new CategoriaRepository();
+@{ ICategoriaRepository iCategoriaRepository = new CategoriaRepository();    
     
-    ViewBag.Title = "Index";
     Layout = null;
 }
 <!DOCTYPE HTML>
@@ -12,19 +11,19 @@
     <title>Ecommerce</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="@Url.Content("~/t/css/style.css")" rel="stylesheet" type="text/css" media="all" />
-    <link href="@Url.Content("~/t/css/slider.css")" rel="stylesheet" type="text/css" media="all" />
-    <script type="text/javascript" src="@Url.Content("~/t/js/jquery-1.7.2.min.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/t/js/move-top.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/t/js/easing.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/t/js/startstop-slider.js")"></script>
+    <link href="@Url.Content("~/Content/t/css/style.css")" rel="stylesheet" type="text/css" media="all" />
+    <link href="@Url.Content("~/Content/t/css/slider.css")" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="@Url.Content("~/Content/t/js/jquery-1.7.2.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/t/js/move-top.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/t/js/easing.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/t/js/startstop-slider.js")"></script>
 </head>
 <body>
     <div class="wrap">
         <div class="header">
             <div class="header_top">
                 <div class="logo">
-                    <a href="@Url.Action("Index","Produtos")"><img src="@Url.Content("~/t/images/logo.png")" alt="" /></a>
+                    <a href="@Url.Action("Index","Produtos")"><img src="@Url.Content("~/Content/t/images/logo.png")" alt="" /></a>
                 </div>
                 <div class="cart">
                     <p>
@@ -106,7 +105,7 @@
                             <div id="mover">
                                 <div id="slide-1" class="slide">
                                     <div class="slider-img">
-                                        <a href="preview.html"><img src="../t/images/slide-1-image.png" alt="learn more" /></a>
+                                        <a href="preview.html"><img src="../Content/t/images/slide-1-image.png" alt="learn more" /></a>
                                     </div>
                                     <div class="slider-text">
                                         <h1>PROMO20<br><span>Som</span></h1>
@@ -128,13 +127,13 @@
                                         <a href="@Url.Action("Categorias","Produtos", new { id=3 })" class="button">Confira</a>
                                     </div>
                                     <div class="slider-img">
-                                        <a href="preview.html"><img src="../t/images/slide-3-image.jpg" alt="learn more" /></a>
+                                        <a href="preview.html"><img src="../Content/t/images/slide-3-image.jpg" alt="learn more" /></a>
                                     </div>
                                     <div class="clear"></div>
                                 </div>
                                 <div class="slide">
                                     <div class="slider-img">
-                                        <a href="preview.html"><img src="../t/images/slide-2-image.jpg" alt="learn more" /></a>
+                                        <a href="preview.html"><img src="../Content/t/images/slide-2-image.jpg" alt="learn more" /></a>
                                     </div>
                                     <div class="slider-text">
                                         <h1>PROMO10<br><span></span></h1>
@@ -167,7 +166,7 @@
                     @foreach (var item in Model)
                     {
                         <div class="grid_1_of_4 images_1_of_4">
-                            <a href="@Url.Action("Detalhes","Produtos", new { id = item.idProduto})"><img src="../t/images/@Html.DisplayFor(modelItem => item.foto)" alt="" /></a>
+                            <a href="@Url.Action("Detalhes","Produtos", new { id = item.idProduto})"><img src="../Content/t/images/@Html.DisplayFor(modelItem => item.foto)" alt="" /></a>
                             <h2>@Html.DisplayFor(modelItem => item.nome)</h2>
                             <div class="price-details">
                                 <div class="price-number">
@@ -206,11 +205,11 @@
                     <div class="social-icons">
                         <h4>Sigam nos</h4>
                         <ul>
-                            <li><a href="#" target="_blank"><img src="@Url.Content("~/t/images/facebook.png")" alt="" /></a></li>
-                            <li><a href="#" target="_blank"><img src="@Url.Content("~/t/images/twitter.png")" alt="" /></a></li>
-                            <li><a href="#" target="_blank"><img src="@Url.Content("~/t/images/skype.png")" alt="" /> </a></li>
-                            <li><a href="#" target="_blank"> <img src="@Url.Content("~/t/images/dribbble.png")" alt="" /></a></li>
-                            <li><a href="#" target="_blank"> <img src="@Url.Content("~/t/images/linkedin.png")" alt="" /></a></li>
+                            <li><a href="#" target="_blank"><img src="@Url.Content("~/Content/t/images/facebook.png")" alt="" /></a></li>
+                            <li><a href="#" target="_blank"><img src="@Url.Content("~/Content/t/images/Content/twitter.png")" alt="" /></a></li>
+                            <li><a href="#" target="_blank"><img src="@Url.Content("~/Content/t/images/skype.png")" alt="" /> </a></li>
+                            <li><a href="#" target="_blank"> <img src="@Url.Content("~/Content/t/images/dribbble.png")" alt="" /></a></li>
+                            <li><a href="#" target="_blank"> <img src="@Url.Content("~/Content/t/images/linkedin.png")" alt="" /></a></li>
                             <div class="clear"></div>
                         </ul>
                     </div>
