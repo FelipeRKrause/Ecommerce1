@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Ecommerce1.Models;
+using System.IO;
 
 namespace Ecommerce1.Controllers {
     public class AdminController : Controller {
@@ -49,12 +50,16 @@ namespace Ecommerce1.Controllers {
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateProduct([Bind(Include = "idProduto,nome,descricao,preco,idCategoria,quantidade,foto")] Produto produto) {
+        public ActionResult CreateProduct([Bind(Include = "idProduto,nome,descricao,preco,idCategoria,quantidade,foto")] Produto produto, HttpPostedFileBase files) {
             if (ModelState.IsValid) {
                 db.Produto.Add(produto);
                 db.SaveChanges();
                 return RedirectToAction("IndexProduct");
             }
+
+            string path = Path.Combine(Server.MapPath("~/Content/teste/"), files.FileName);
+            files.SaveAs(path);            
+
 
             ViewBag.idCategoria = new SelectList(db.Categoria, "idCategoria", "nome", produto.idCategoria);
             return View(produto);
