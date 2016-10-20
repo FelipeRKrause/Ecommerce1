@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5AEA607F-6678-4887-AFE2-D73241079BDA}</ProjectGuid>
+    <ProjectGuid>{0C0AEEAC-5771-4E89-BF66-77885D6FC4A4}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ecommerce1</RootNamespace>
-    <AssemblyName>Ecommerce1</AssemblyName>
+    <RootNamespace>teste</RootNamespace>
+    <AssemblyName>teste</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -80,8 +80,6 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -198,100 +196,30 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\CartController.cs" />
-    <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ProdutosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Cartao.cs">
-      <DependentUpon>Model10.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Categoria.cs">
-      <DependentUpon>Model10.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Cliente.cs">
-      <DependentUpon>Model10.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Endereco.cs">
-      <DependentUpon>Model10.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Item.cs" />
-    <Compile Include="Models\ItemPedido.cs">
-      <DependentUpon>Model10.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ListaDesejo.cs">
-      <DependentUpon>Model10.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Model10.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model10.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model10.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model10.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model10.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model10.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Pedido.cs">
-      <DependentUpon>Model10.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Produto.cs">
-      <DependentUpon>Model10.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\ClienteRepository.cs" />
-    <Compile Include="Repository\IClienteRepository.cs" />
-    <Compile Include="Repository\ProdutoRepository.cs" />
-    <Compile Include="Repository\CategoriaRepository.cs" />
-    <Compile Include="Repository\IProdutoRepository.cs" />
-    <Compile Include="Repository\ICategoriaRepository.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\db.mdf" />
-    <Content Include="App_Data\db_log.ldf">
-      <DependentUpon>db.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Model10.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model10.edmx</DependentUpon>
-      <LastGenOutput>Model10.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Model10.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model10.edmx</DependentUpon>
-      <LastGenOutput>Model10.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="Models\Model10.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model10.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model10.edmx.diagram">
-      <DependentUpon>Model10.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -316,29 +244,9 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Produtos\Index.cshtml" />
-    <Content Include="Views\Produtos\Contato.cshtml" />
-    <Content Include="Views\Produtos\Detalhes.cshtml" />
-    <Content Include="Views\Clientes\Create.cshtml" />
-    <Content Include="Views\Clientes\Login.cshtml" />
-    <Content Include="Views\Produtos\Categorias.cshtml" />
-    <Content Include="Views\Admin\CreateProduct.cshtml" />
-    <Content Include="Views\Admin\DeleteProduct.cshtml" />
-    <Content Include="Views\Admin\DetailsProduct.cshtml" />
-    <Content Include="Views\Admin\EditProduct.cshtml" />
-    <Content Include="Views\Admin\IndexProduct.cshtml" />
-    <Content Include="Views\Admin\CreateCategory.cshtml" />
-    <Content Include="Views\Admin\DeleteCategory.cshtml" />
-    <Content Include="Views\Admin\DetailsCategory.cshtml" />
-    <Content Include="Views\Admin\EditCategory.cshtml" />
-    <Content Include="Views\Admin\IndexCategory.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\Login.cshtml" />
-    <Content Include="Views\Clientes\MyAccount.cshtml" />
-    <Content Include="Views\Cart\Index.cshtml" />
-    <Content Include="Views\Produtos\Contato - Copy.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -357,9 +265,11 @@
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -368,12 +278,6 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\t\css\" />
-    <Folder Include="Content\t\font\" />
-    <Folder Include="Content\t\images\" />
-    <Folder Include="Content\t\js\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -391,9 +295,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1931</DevelopmentServerPort>
+          <DevelopmentServerPort>7265</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1931/</IISUrl>
+          <IISUrl>http://localhost:7265/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
