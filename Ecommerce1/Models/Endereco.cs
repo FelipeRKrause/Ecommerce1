@@ -20,6 +20,7 @@ namespace Ecommerce1.Models
         public string bairro { get; set; }
         public string cidade { get; set; }
         public int idCliente { get; set; }
+        public int idEndereco { get; set; }
     
         public virtual Cliente Cliente { get; set; }
     }

@@ -11,7 +11,7 @@ using System.IO;
 
 namespace Ecommerce1.Controllers {
     public class AdminController : Controller {
-        private dbEntities10 db = new dbEntities10();
+        private dbEntities11 db = new dbEntities11();
 
         // GET: Admin
         public ActionResult Index() {

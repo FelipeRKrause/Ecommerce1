@@ -13,10 +13,10 @@ namespace Ecommerce1.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class dbEntities10 : DbContext
+    public partial class dbEntities11 : DbContext
     {
-        public dbEntities10()
-            : base("name=dbEntities10")
+        public dbEntities11()
+            : base("name=dbEntities11")
         {
         }
     
@@ -25,13 +25,13 @@ namespace Ecommerce1.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Cartao> Cartao { get; set; }
         public virtual DbSet<Categoria> Categoria { get; set; }
         public virtual DbSet<Cliente> Cliente { get; set; }
+        public virtual DbSet<Endereco> Endereco { get; set; }
         public virtual DbSet<ItemPedido> ItemPedido { get; set; }
+        public virtual DbSet<ListaDesejo> ListaDesejo { get; set; }
         public virtual DbSet<Pedido> Pedido { get; set; }
         public virtual DbSet<Produto> Produto { get; set; }
-        public virtual DbSet<Cartao> Cartao { get; set; }
-        public virtual DbSet<Endereco> Endereco { get; set; }
-        public virtual DbSet<ListaDesejo> ListaDesejo { get; set; }
     }
 }

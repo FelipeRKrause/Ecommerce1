@@ -15,7 +15,7 @@ namespace Ecommerce1.Controllers {
         private ICategoriaRepository iCategoriaRepository = new CategoriaRepository();
         private IProdutoRepository iProdutoRepository = new ProdutoRepository();
         private IClienteRepository iClienteRepository = new ClienteRepository();
-        private dbEntities10 db = new dbEntities10();
+        private dbEntities11 db = new dbEntities11();
 
 
 

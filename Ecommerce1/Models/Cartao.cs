@@ -20,6 +20,7 @@ namespace Ecommerce1.Models
         public string codigo { get; set; }
         public string bandeira { get; set; }
         public int idCliente { get; set; }
+        public int idCartao { get; set; }
     
         public virtual Cliente Cliente { get; set; }
     }

@@ -8,7 +8,7 @@ namespace Ecommerce1.Repository
 {
     public class ClienteRepository : IClienteRepository
     {
-        private dbEntities10 dbEntities = new dbEntities10();
+        private dbEntities11 dbEntities = new dbEntities11();
 
         public void create(Cliente cliente)
         {
