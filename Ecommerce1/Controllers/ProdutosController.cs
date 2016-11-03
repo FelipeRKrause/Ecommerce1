@@ -16,25 +16,18 @@ namespace Ecommerce1.Controllers {
         private IProdutoRepository iProdutoRepository = new ProdutoRepository();
         private dbEntities10 db = new dbEntities10();
 
-
+        [Route("")]
         public ActionResult Index() {
 
             var produto = db.Produto.Include(p => p.Categoria);
             return View(produto.ToList());
         }
-
+        [Route("Contato")]
         public ActionResult Contato() {
-
-
             return View();
         }
 
-        public ActionResult Carrinho() {
-
-
-            return View();
-        }
-
+        [Route("Categoria/{id}")]
         public ActionResult Categorias(int id) {
             var categoria = iCategoriaRepository.find(id);
             ViewBag.categoria = categoria;
@@ -43,12 +36,9 @@ namespace Ecommerce1.Controllers {
             return View();
         }
 
+        [Route("Detalhe/{id}")]
         public ActionResult Detalhes(int id) {
-
-            if (id == null) {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
+            
             ViewBag.produto = iProdutoRepository.find(id);
             return View();
         }
