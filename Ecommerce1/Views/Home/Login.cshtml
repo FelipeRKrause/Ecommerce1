@@ -1,7 +1,5 @@
 ﻿@model Ecommerce1.Models.Cliente
 @{
-
-    ViewBag.Title = "Login";
     Layout = null;
 }
 <!DOCTYPE HTML>
@@ -92,9 +90,9 @@
                         <div class="contact-form">
                             <h2>Login</h2>
 
-                            
+
                             <form action="Home/Login" method="post">
-                                
+
 
 
                                 <div class="form-horizontal">
@@ -102,40 +100,27 @@
                                     <hr />
 
 
-                                    <div class="form-group">
-                                        <span><label>Email</label></span>
-                                        <div class="col-md-10">
-                                            @Html.EditorFor(model => model.email, new { @class = "form-control" })
 
-                                        </div>
-                                    </div>
+                                    <span><label>Email</label></span>
+                                    <span><input class="text-box single-line" id="email" name="email" type="text" value="" required="required"/></span>
 
-                                    <div class="form-group">
-                                        <span><label>Senha</label></span>
-                                        <div class="col-md-10">
-                                            @Html.PasswordFor(model => model.senha, new { @class = "form-control" })
-
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="col-md-offset-2 col-md-10">
-                                            <input type="submit" value="Login" class="btn btn-default" />
-                                        </div>
-                                    </div>
+                                    <span><label>Senha</label></span>
+                                    <span><input class="text-box single-line" id="senha" name="senha" type="password" required="required"/></span>
 
 
+                                    <input type="submit" value="Login" class="myButton" />
+
+                                    @ViewBag.error;
 
                                 </div>
-                                
-                                @ViewBag.error
-</div>
+                        </div>
                     </div>
 
                 </div>
             </div>
         </div>
     </div>
+
     <div class="footer">
         <div class="wrap">
             <div class="section group">

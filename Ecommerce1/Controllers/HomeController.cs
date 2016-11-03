@@ -68,7 +68,7 @@ namespace Ecommerce1.Controllers {
             Cliente cli = iClienteRepository.login(cliente.email, cliente.senha);
             if (cli == null) {
                 ViewBag.error = "Email ou Senha inválido";
-                return View("Login");
+                return RedirectToRoute("Login");
             } else {
                 Session["email"] = cli.email;
                 Session["senha"] = cli.senha;
