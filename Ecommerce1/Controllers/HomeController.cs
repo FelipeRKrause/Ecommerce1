@@ -19,7 +19,7 @@ namespace Ecommerce1.Controllers {
 
 
 
-        [Route("")]
+        [Route("", Name ="Index")]
         public ActionResult Index() {
 
             var produto = db.Produto.Include(p => p.Categoria);
@@ -28,7 +28,7 @@ namespace Ecommerce1.Controllers {
         }
 
 
-        [Route("Categoria/{id}")]
+        [Route("Categoria/{id}", Name = "Categoria")]
         public ActionResult Categoria(int id) {
 
             var categoria = iCategoriaRepository.find(id);
@@ -38,7 +38,7 @@ namespace Ecommerce1.Controllers {
 
         }
 
-        [Route("Detalhe/{id}")]
+        [Route("Detalhe/{id}", Name ="Detalhe")]
         public ActionResult Detalhe(int id) {
 
             ViewBag.produto = iProdutoRepository.find(id);
@@ -47,7 +47,7 @@ namespace Ecommerce1.Controllers {
         }
 
 
-        [Route("Contato")]
+        [Route("Contato", Name ="Contato")]
         public ActionResult Contato() {
 
             return View();
@@ -55,14 +55,14 @@ namespace Ecommerce1.Controllers {
         }
 
         [HttpGet]
-        [Route("Login")]
+        [Route("Login", Name ="Login")]
         public ActionResult Login() {
 
             return View();
 
         }
 
-        [HttpPost]
+        [HttpPost]        
         public ActionResult Login(Cliente cliente) {
 
             Cliente cli = iClienteRepository.login(cliente.email, cliente.senha);
@@ -72,14 +72,14 @@ namespace Ecommerce1.Controllers {
             } else {
                 Session["email"] = cli.email;
                 Session["senha"] = cli.senha;
-                return View("Create");
+                 return RedirectToAction("Index");
 
             }
         }
 
 
         [HttpGet]
-        [Route("Cadastro")]
+        [Route("Cadastro", Name ="Cadastro")]
         public ActionResult Cadastro() {
 
             return View();
@@ -95,14 +95,14 @@ namespace Ecommerce1.Controllers {
 
         }
 
-        [Route("Manager")]
+        [Route("Manager", Name ="Manager")]
         public ActionResult Manager() {
 
             return View();
 
         }
 
-        [Route("Carrinho")]
+        [Route("Carrinho", Name ="Carrinho")]
         public ActionResult Cart() {
 
             return View();

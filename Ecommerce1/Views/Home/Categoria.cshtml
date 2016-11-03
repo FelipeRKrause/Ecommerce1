@@ -24,7 +24,7 @@
         <div class="header">
             <div class="header_top">
                 <div class="logo">
-                    <a href="@Url.Action("Index","Produtos")"><img src="@Url.Content("~/Content/t/images/logo.png")" alt="" /></a>
+                    <a href="@Url.Action("Index","Home")"><img src="@Url.Content("~/Content/t/images/logo.png")" alt="" /></a>
                 </div>
                 <div class="cart">
                     <p>
@@ -69,12 +69,13 @@
             <div class="header_bottom">
                 <div class="menu">
                     <ul>                      
-                        <li class="active"><a href="@Url.Action("Index","Produtos")">Home</a></li>
-                        <li><a href="@Url.Action("Login","Clientes")">Login</a></li>
-                        <li><a href="@Url.Action("MyAccount","Clientes")">Minha Conta</a></li>
-                        <li><a href="@Url.Action("Create","Clientes")">Cadastro</a></li>
-                        <li><a href="@Url.Action("Index","Cart")">Carrinho</a></li>
-                        <li><a href="@Url.Action("Contato","Produtos")">Contato</a></li>
+                        <li class="active"><a href="@Url.Action("Index","Home")">Home</a></li>
+                        <li><a href="@Url.Action("Login","Home")">Login</a></li>
+                        <li><a href="@Url.Action("Manager","Home")">Minha Conta</a></li>
+                        <li><a href="@Url.Action("Cadastro","Home")">Cadastro</a></li>
+                        <li><a href="@Url.Action("Cart","Home")">Carrinho</a></li>
+                        <li><a href="@Url.Action("Contato","Home")">Contato</a></li>
+                        <li><a href="@Url.Action("Index","Admin")">Admin</a></li>
                         
                         <div class="clear"></div>
                     </ul>
@@ -101,14 +102,14 @@
                     @foreach (var produto in ViewBag.produtos)
                     {
                         <div class="grid_1_of_4 images_1_of_4">
-                            <a href="@Url.Action("Detalhes","Produtos", new { id = produto.idProduto})"><img src="@Url.Content("~/Content/t/images/")@produto.foto" alt="" /></a>
+                            <a href="@Url.Action("Detalhe","Home", new { id = produto.idProduto})"><img src="@Url.Content("~/Content/t/images/")@produto.foto" alt="" /></a>
                             <h2>@produto.nome</h2>
                             <div class="price-details">
                                 <div class="price-number">
                                     <p><span class="rupees">@produto.preco</span></p>
                                 </div>
                                 <div class="add-cart">
-                                    <h4><a href="@Url.Action("Add","Cart", new { id = @produto.idProduto })">Adicionar no Carrinho</a></h4>
+                                    <h4><a href="@Url.Action("Buy","Home", new { id = @produto.idProduto })">Adicionar no Carrinho</a></h4>
                                 </div>
                                 <div class="clear"></div>
                             </div>
@@ -124,10 +125,10 @@
                 <div class="col_1_of_4 span_1_of_4">
                     <h4>Minha Conta</h4>
                     <ul>
-                        <li><a href="@Url.Action("Login","Clientes")">Login</a></li>
-                        <li><a href="@Url.Action("Carrinho","Produtos")">Carrinho de Compras</a></li>
-                        <li><a href="@Url.Action("MyAccount","Clientes")">Pedidos</a></li>
-                        <li><a href="@Url.Action("MyAccount","Clientes")">Dados Pessoais</a></li>
+                        <li><a href="@Url.Action("Login","Home")">Login</a></li>
+                        <li><a href="@Url.Action("Cart","Home")">Carrinho de Compras</a></li>
+                        <li><a href="@Url.Action("Manager","Home")">Pedidos</a></li>
+                        <li><a href="@Url.Action("Manager","Home")">Dados Pessoais</a></li>
 
                     </ul>
                 </div>

@@ -332,7 +332,7 @@
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Home\Cadastro.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\MyAccount.cshtml" />
+    <Content Include="Views\Home\Manager.cshtml" />
     <Content Include="Views\Home\Cart.cshtml" />
   </ItemGroup>
   <ItemGroup>
