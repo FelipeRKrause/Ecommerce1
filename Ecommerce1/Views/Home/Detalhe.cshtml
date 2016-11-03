@@ -129,7 +129,14 @@
 
                                 <div class="share-desc">
                                     <div class="button"><span><a href="@Url.Action("Buy","Home", new { id = ViewBag.produto.idProduto })">Adicionar no Carrinho</a></span></div>
+                                  
                                     <div class="clear"></div>
+                                </div>
+                                <div class="wish-list">
+                                    <ul>
+                                        <li class="wish"><a href="@Url.Action("Wishlist","Home", new { id = ViewBag.produto.idProduto})">Adicionar Lista Desejos</a></li>
+
+                                    </ul>
                                 </div>
 
                             </div>

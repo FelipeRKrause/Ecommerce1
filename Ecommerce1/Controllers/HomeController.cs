@@ -140,6 +140,29 @@ namespace Ecommerce1.Controllers {
             return View("Cart");
         }
 
+        
+        public ActionResult WishList(int id) {
+
+            Produto produto = new Produto();
+
+            produto = iProdutoRepository.find(id);
+
+            ListaDesejo lista = new ListaDesejo();
+                       
+            lista.idProduto = id;
+            lista.idCliente = 1;
+
+            db.ListaDesejo.Add(lista);
+            db.SaveChanges();
+
+
+            //Session["email"] = cli.email;
+            //Session["senha"] = cli.senha;
+
+
+            return View();
+        }
+
 
 
         protected override void Dispose(bool disposing) {

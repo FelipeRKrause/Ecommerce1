@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
 warning 6002: The table/view 'C:\USERS\FELIPE\SOURCE\REPOS\ECOMMERCE1\ECOMMERCE1\APP_DATA\DB.MDF.dbo.Cartao' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Cartao">
@@ -68,15 +68,11 @@ warning 6002: The table/view 'C:\USERS\FELIPE\SOURCE\REPOS\ECOMMERCE1\ECOMMERCE1
           <Property Name="quantidade" Type="int" Nullable="false" />
           <Property Name="valorItem" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\FELIPE\SOURCE\REPOS\ECOMMERCE1\ECOMMERCE1\APP_DATA\DB.MDF.dbo.ListaDesejo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ListaDesejo">
           <Key>
             <PropertyRef Name="idLista" />
-            <PropertyRef Name="idProduto" />
-            <PropertyRef Name="idCliente" />
           </Key>
-          <Property Name="idLista" Type="int" Nullable="false" />
+          <Property Name="idLista" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idProduto" Type="int" Nullable="false" />
           <Property Name="idCliente" Type="int" Nullable="false" />
         </EntityType>
@@ -163,7 +159,7 @@ warning 6002: The table/view 'C:\USERS\FELIPE\SOURCE\REPOS\ECOMMERCE1\ECOMMERCE1
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ListaDese__idCli__34C8D9D1">
+        <Association Name="FK__ListaDese__idCli__4AB81AF0">
           <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
           <End Role="ListaDesejo" Type="Self.ListaDesejo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -175,7 +171,7 @@ warning 6002: The table/view 'C:\USERS\FELIPE\SOURCE\REPOS\ECOMMERCE1\ECOMMERCE1
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ListaDese__idPro__239E4DCF">
+        <Association Name="FK__ListaDese__idPro__49C3F6B7">
           <End Role="Produto" Type="Self.Produto" Multiplicity="1" />
           <End Role="ListaDesejo" Type="Self.ListaDesejo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -215,6 +211,7 @@ warning 6002: The table/view 'C:\USERS\FELIPE\SOURCE\REPOS\ECOMMERCE1\ECOMMERCE1
           <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ItemPedido" EntityType="Self.ItemPedido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ListaDesejo" EntityType="Self.ListaDesejo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Produto" EntityType="Self.Produto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cartao" EntityType="Self.Cartao" store:Type="Tables" store:Schema="dbo">
@@ -237,13 +234,6 @@ warning 6002: The table/view 'C:\USERS\FELIPE\SOURCE\REPOS\ECOMMERCE1\ECOMMERCE1
     [Endereco].[idCliente] AS [idCliente]
     FROM [dbo].[Endereco] AS [Endereco]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="ListaDesejo" EntityType="Self.ListaDesejo" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [ListaDesejo].[idLista] AS [idLista], 
-    [ListaDesejo].[idProduto] AS [idProduto], 
-    [ListaDesejo].[idCliente] AS [idCliente]
-    FROM [dbo].[ListaDesejo] AS [ListaDesejo]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK__Cartao__idClient__276EDEB3" Association="Self.FK__Cartao__idClient__276EDEB3">
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Cartao" EntitySet="Cartao" />
@@ -264,11 +254,11 @@ warning 6002: The table/view 'C:\USERS\FELIPE\SOURCE\REPOS\ECOMMERCE1\ECOMMERCE1
             <End Role="Produto" EntitySet="Produto" />
             <End Role="ItemPedido" EntitySet="ItemPedido" />
           </AssociationSet>
-          <AssociationSet Name="FK__ListaDese__idCli__34C8D9D1" Association="Self.FK__ListaDese__idCli__34C8D9D1">
+          <AssociationSet Name="FK__ListaDese__idCli__4AB81AF0" Association="Self.FK__ListaDese__idCli__4AB81AF0">
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="ListaDesejo" EntitySet="ListaDesejo" />
           </AssociationSet>
-          <AssociationSet Name="FK__ListaDese__idPro__239E4DCF" Association="Self.FK__ListaDese__idPro__239E4DCF">
+          <AssociationSet Name="FK__ListaDese__idPro__49C3F6B7" Association="Self.FK__ListaDese__idPro__49C3F6B7">
             <End Role="Produto" EntitySet="Produto" />
             <End Role="ListaDesejo" EntitySet="ListaDesejo" />
           </AssociationSet>
@@ -281,8 +271,7 @@ warning 6002: The table/view 'C:\USERS\FELIPE\SOURCE\REPOS\ECOMMERCE1\ECOMMERCE1
             <End Role="Produto" EntitySet="Produto" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
