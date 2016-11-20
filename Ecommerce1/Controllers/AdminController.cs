@@ -200,6 +200,19 @@ namespace Ecommerce1.Controllers {
             return RedirectToAction("IndexCategory");
         }
 
+        public ActionResult Decrementa(int id) {
+            Produto produto = new Produto();
+
+            produto = db.Produto.Find(id);
+
+            produto.quantidade--;
+            db.SaveChanges();
+
+            
+
+            return Json(produto);
+        }
+
 
 
         protected override void Dispose(bool disposing) {

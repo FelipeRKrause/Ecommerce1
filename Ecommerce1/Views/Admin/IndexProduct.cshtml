@@ -14,9 +14,7 @@
         <th>
             @Html.DisplayNameFor(model => model.nome)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.descricao)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.preco)
         </th>
@@ -37,13 +35,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.nome)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.descricao)
-        </td>
+        
         <td>
             @Html.DisplayFor(modelItem => item.preco)
         </td>
-        <td>
+        <td id="quantidade@(item.idProduto)">
             @Html.DisplayFor(modelItem => item.quantidade)
         </td>
         <td>
@@ -55,9 +51,31 @@
         <td>
             @Html.ActionLink("Edit", "EditProduct", new { id=item.idProduto }) |
             @Html.ActionLink("Details", "DetailsProduct", new { id=item.idProduto }) |
-            @Html.ActionLink("Delete", "DeleteProduct", new { id=item.idProduto })
+            @Html.ActionLink("Delete", "DeleteProduct", new { id = item.idProduto })
+            @Html.ActionLink("Decrementaaaa", "Decrementa", new { id = item.idProduto })
+            <a href="#" onclick="decrementa(@(item.idProduto));"> Decrementar</a>
+            <input type="button" onclick="decrementa(@(item.idProduto))">
         </td>
     </tr>
 }
 
 </table>
+
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+
+<script type="text/javascript">
+
+
+    function decrementa(idProduto) {
+        var url = "/Admin/Decrementa";
+        $.post(url, { id: idProduto }, atualiza(JSON));
+
+    }
+    
+    function atualiza(resposta) {
+        $("#quantidade" + resposta.idProduto).html(resposta.quantidade);   
+    
+    }
+
+
+</script>
