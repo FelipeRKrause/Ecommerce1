@@ -134,7 +134,7 @@
                                 </div>
                                 <div class="wish-list">
                                     <ul>
-                                        <li class="wish"><a href="@Url.Action("Wishlist","Home", new { id = ViewBag.produto.idProduto})">Adicionar Lista Desejos</a></li>
+                                        <li class="wish"><a href="#" onclick="wishList(@(ViewBag.produto.idProduto))">Adicionar Lista Desejos</a></li>
 
                                     </ul>
                                 </div>
@@ -228,6 +228,30 @@
         });
     </script>
     <a href="#" id="toTop"><span id="toTopHover"> </span></a>
+
+
+    <script>
+        function wishList(idProduto) {
+        $.ajax({
+            dataType: "json",
+            type: "POST",
+            url: "/Home/WishList",
+            data: { id: idProduto },
+            success: function (dados) {
+                
+                   // $("#quantidade" + dados.idProduto).html(dados.quantidade);
+
+
+            }
+        });
+    };
+
+    </script>
+
+
+
+
+
 </body>
 </html>
 

@@ -140,28 +140,38 @@ namespace Ecommerce1.Controllers {
             return View("Cart");
         }
 
-        
-        public ActionResult WishList(int id) {
+
+        public JsonResult WishList(int id) {
 
             Produto produto = new Produto();
 
             produto = iProdutoRepository.find(id);
 
             ListaDesejo lista = new ListaDesejo();
-                       
-            lista.idProduto = id;
+
+            lista.idProduto = produto.idProduto;
             lista.idCliente = 1;
 
             db.ListaDesejo.Add(lista);
             db.SaveChanges();
+            
+
+            var resultado = new {
+                idProduto = produto.idProduto,
+                quantidade = produto.quantidade
+            };
 
 
-            //Session["email"] = cli.email;
-            //Session["senha"] = cli.senha;
-
-
-            return View();
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+
+
+
+
+
+
+
+
 
 
 
