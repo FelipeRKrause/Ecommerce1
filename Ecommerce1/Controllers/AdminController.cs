@@ -58,7 +58,7 @@ namespace Ecommerce1.Controllers {
             }
 
             string path = Path.Combine(Server.MapPath("~/Content/teste/"), files.FileName);
-            files.SaveAs(path);            
+            files.SaveAs(path);
 
 
             ViewBag.idCategoria = new SelectList(db.Categoria, "idCategoria", "nome", produto.idCategoria);
@@ -200,18 +200,39 @@ namespace Ecommerce1.Controllers {
             return RedirectToAction("IndexCategory");
         }
 
-        public ActionResult Decrementa(int id) {
+
+        public JsonResult Decrementa(int id) {
+
             Produto produto = new Produto();
-
             produto = db.Produto.Find(id);
-
             produto.quantidade--;
             db.SaveChanges();
 
-            
+            var resultado = new {
+                idProduto = produto.idProduto,
+                quantidade = produto.quantidade
+            };
 
-            return Json(produto);
+
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult Incrementa(int id) {
+
+            Produto produto = new Produto();
+            produto = db.Produto.Find(id);
+            produto.quantidade++;
+            db.SaveChanges();
+
+            var resultado = new {
+                idProduto = produto.idProduto,
+                quantidade = produto.quantidade
+            };
+
+
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
+
 
 
 

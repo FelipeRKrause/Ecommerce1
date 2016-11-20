@@ -14,7 +14,7 @@
         <th>
             @Html.DisplayNameFor(model => model.nome)
         </th>
-        
+
         <th>
             @Html.DisplayNameFor(model => model.preco)
         </th>
@@ -30,52 +30,71 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nome)
-        </td>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.preco)
-        </td>
-        <td id="quantidade@(item.idProduto)">
-            @Html.DisplayFor(modelItem => item.quantidade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.foto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Categoria.nome)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "EditProduct", new { id=item.idProduto }) |
-            @Html.ActionLink("Details", "DetailsProduct", new { id=item.idProduto }) |
-            @Html.ActionLink("Delete", "DeleteProduct", new { id = item.idProduto })
-            @Html.ActionLink("Decrementaaaa", "Decrementa", new { id = item.idProduto })
-            <a href="#" onclick="decrementa(@(item.idProduto));"> Decrementar</a>
-            <input type="button" onclick="decrementa(@(item.idProduto))">
-        </td>
-    </tr>
-}
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.preco)
+            </td>
+            <td id="quantidade@(item.idProduto)">
+                @Html.DisplayFor(modelItem => item.quantidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.foto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.nome)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditProduct", new { id = item.idProduto }) |
+                @Html.ActionLink("Details", "DetailsProduct", new { id = item.idProduto }) |
+                @Html.ActionLink("Delete", "DeleteProduct", new { id = item.idProduto }) |             
+                <a href="#" onclick="decrementa(@(item.idProduto));"> Decrementar</a>  |
+                <a href="#" onclick="incrementa(@(item.idProduto));"> Incrementar</a>
+                
+            </td>
+        </tr>
+    }
 
 </table>
 
 <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
 
-<script type="text/javascript">
 
-
+<script>
     function decrementa(idProduto) {
-        var url = "/Admin/Decrementa";
-        $.post(url, { id: idProduto }, atualiza(JSON));
+        $.ajax({
+            dataType: "json",
+            type: "POST",
+            url: "/Admin/Decrementa",
+            data: { id: idProduto },
+            success: function (dados) {
+               
 
-    }
-    
-    function atualiza(resposta) {
-        $("#quantidade" + resposta.idProduto).html(resposta.quantidade);   
-    
-    }
+                    $("#quantidade" + dados.idProduto).html(dados.quantidade);
 
+                
+            }
+        });
+    };
 
+    function incrementa(idProduto) {
+        $.ajax({
+            dataType: "json",
+            type: "POST",
+            url: "/Admin/Incrementa",
+            data: { id: idProduto },
+            success: function (dados) {
+               
+
+                    $("#quantidade" + dados.idProduto).html(dados.quantidade);
+
+              
+            }
+        });
+    };
 </script>
+
