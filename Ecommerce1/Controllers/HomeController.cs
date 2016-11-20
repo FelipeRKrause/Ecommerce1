@@ -111,7 +111,7 @@ namespace Ecommerce1.Controllers {
             return View();
         }
 
-        public ActionResult Buy(int id) {
+        public ActionResult Buy1(int id) {
 
             if (Session["cart"] == null) {
 
@@ -141,6 +141,45 @@ namespace Ecommerce1.Controllers {
         }
 
 
+        public JsonResult Buy(int id) {
+
+            if (Session["cart"] == null) {
+
+                List<Item> cart = new List<Item>();
+                cart.Add(new Item() {
+                    produto = iProdutoRepository.find(id),
+                    quantidade = 1
+
+
+                });
+                Session["cart"] = cart;
+
+            } else {
+
+                List<Item> cart = (List<Item>)Session["cart"];
+                cart.Add(new Item() {
+                    produto = iProdutoRepository.find(id),
+                    quantidade = 1
+
+                });
+                Session["cart"] = cart;
+
+
+            }
+
+            var resultado = new {
+                idProduto = 1,
+                quantidade = 1
+            };
+
+
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
+
+
+
+
+
         public JsonResult WishList(int id) {
 
             Produto produto = new Produto();
@@ -164,16 +203,7 @@ namespace Ecommerce1.Controllers {
 
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
-
-
-
-
-
-
-
-
-
-
+        
 
         protected override void Dispose(bool disposing) {
 

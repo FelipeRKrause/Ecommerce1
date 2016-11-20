@@ -128,7 +128,7 @@
                                 </div>
 
                                 <div class="share-desc">
-                                    <div class="button"><span><a href="@Url.Action("Buy","Home", new { id = ViewBag.produto.idProduto })">Adicionar no Carrinho</a></span></div>
+                                    <div class="button"><span><a href="#" onclick="addCart(@(ViewBag.produto.idProduto))">Adicionar no Carrinho</a></span></div>
                                   
                                     <div class="clear"></div>
                                 </div>
@@ -244,7 +244,23 @@
 
             }
         });
-    };
+        };
+
+
+        function addCart(idProduto) {
+            $.ajax({
+                dataType: "json",
+                type: "POST",
+                url: "/Home/Buy",
+                data: { id: idProduto },
+                success: function (dados) {
+                
+                    // $("#quantidade" + dados.idProduto).html(dados.quantidade);
+
+
+                }
+            });
+        };
 
     </script>
 
