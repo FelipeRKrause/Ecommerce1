@@ -156,12 +156,30 @@ namespace Ecommerce1.Controllers {
 
             } else {
 
-                List<Item> cart = (List<Item>)Session["cart"];
-                cart.Add(new Item() {
-                    produto = iProdutoRepository.find(id),
-                    quantidade = 1
+                Boolean teste = false;
 
-                });
+                List<Item> cart = (List<Item>)Session["cart"];
+
+                foreach (var item in cart) {
+                    if (item.produto.idProduto == id) {
+                        
+                         teste = true;
+                        item.quantidade++;
+
+                    }
+
+                }
+
+                if(teste == false) { 
+
+                        cart.Add(new Item() {
+                            produto = iProdutoRepository.find(id),
+                            quantidade = 1
+
+                        });
+                    }
+                
+                
                 Session["cart"] = cart;
 
 

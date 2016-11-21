@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce1", "Ecommerce1\Ec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin", "Admin\Admin.csproj", "{DBC77DBF-A194-4E0F-8424-32E197C2101D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegracaoRedesSociais", "..\..\..\Downloads\____b\Aula02\IntegracaoRedesSociais\IntegracaoRedesSociais.csproj", "{FA1B4BB7-D0A2-4C14-9EEA-752CBFFB8D0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DBC77DBF-A194-4E0F-8424-32E197C2101D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBC77DBF-A194-4E0F-8424-32E197C2101D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBC77DBF-A194-4E0F-8424-32E197C2101D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA1B4BB7-D0A2-4C14-9EEA-752CBFFB8D0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA1B4BB7-D0A2-4C14-9EEA-752CBFFB8D0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA1B4BB7-D0A2-4C14-9EEA-752CBFFB8D0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA1B4BB7-D0A2-4C14-9EEA-752CBFFB8D0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
