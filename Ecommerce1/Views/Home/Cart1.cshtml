@@ -1,0 +1,40 @@
+﻿@model Ecommerce1.Models.Produto
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+@using Ecommerce1.Models
+
+<h2>Index</h2>
+
+<table>
+    <tbody>
+        <tr>
+            <td>Nome</td>
+            <td>Valor</td>
+            <td>Quantidade</td>
+            <td>Total</td>
+        </tr>
+
+        @{ 
+
+            List<Item> cart = (List<Item>) Session["cart"];
+
+
+        }
+
+        @foreach (var item in cart ) {
+
+            <tr>
+                <td>@item.produto.nome</td>
+                <td>@item.produto.preco</td>
+                <td>@item.quantidade</td>
+                <td>Total</td>
+            </tr>
+
+
+
+        }
+

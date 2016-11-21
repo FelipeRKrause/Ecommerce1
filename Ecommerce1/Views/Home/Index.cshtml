@@ -229,6 +229,7 @@
 
 
     <script>
+    
     function addCart(idProduto) {
         $.ajax({
             dataType: "json",
@@ -237,8 +238,7 @@
             data: { id: idProduto },
             success: function (dados) {
 
-
-                    $("#quantidade" + dados.idProduto).html(dados.quantidade);
+                // $("#quantidade" + dados.idProduto).html(dados.quantidade);
 
 
             }
